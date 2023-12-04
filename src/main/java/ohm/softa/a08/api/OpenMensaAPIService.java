@@ -10,18 +10,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.util.List;
 
 /// Singleton
-public class OpenMensaAPIService implements  OpenMensaAPI {
+public class OpenMensaAPIService {
 
 	private static final OpenMensaAPIService instance = new OpenMensaAPIService();
 
 	private OpenMensaAPI mensaApiInstance;
 
 	private OpenMensaAPIService() {
-		Gson gson = new Gson();
-
 		/* initialize Retrofit instance */
 		var retrofit = new Retrofit.Builder()
-			.addConverterFactory(GsonConverterFactory.create(gson))
+			.addConverterFactory(GsonConverterFactory.create())
 			.baseUrl("http://openmensa.org/api/v2/")
 			.build();
 
@@ -35,10 +33,5 @@ public class OpenMensaAPIService implements  OpenMensaAPI {
 
 	public OpenMensaAPI getApi() {
 		return mensaApiInstance;
-	}
-
-	@Override
-	public Call<List<Meal>> getMeals(String date) {
-		return instance.getMeals(date);
 	}
 }

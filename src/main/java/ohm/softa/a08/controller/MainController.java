@@ -94,7 +94,7 @@ public class MainController implements Initializable {
 	 */
 	@FXML
 	public void doGetMeals() {
-		OpenMensaAPIService.getInstance().getMeals(openMensaDateFormat.format(new Date())).enqueue(new Callback<>() {
+		OpenMensaAPIService.getInstance().getApi().getMeals(openMensaDateFormat.format(new Date())).enqueue(new Callback<>() {
 			@Override
 			public void onResponse(Call<List<Meal>> call, Response<List<Meal>> response) {
 				logger.debug("Got response");
