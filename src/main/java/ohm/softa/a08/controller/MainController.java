@@ -113,12 +113,10 @@ public class MainController implements Initializable {
 
 					meals.clear();
 
-					if ("Vegetarian".equals(filterChoiceBox.getValue()))
-						meals.addAll(response.body().stream()
-							.filter(Meal::isVegetarian)
-							.collect(Collectors.toList()));
-					else
-						meals.addAll(response.body());
+					List<Meal> allMeals = response.body();
+
+					meals.addAll(allMeals);
+
 				});
 			}
 
