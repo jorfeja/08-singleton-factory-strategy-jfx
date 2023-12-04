@@ -16,10 +16,8 @@ public class OpenMensaAPIService implements  OpenMensaAPI {
 
 	private OpenMensaAPI mensaApiInstance;
 
-	private Gson gson;
-
 	private OpenMensaAPIService() {
-		gson = new Gson();
+		Gson gson = new Gson();
 
 		/* initialize Retrofit instance */
 		var retrofit = new Retrofit.Builder()
@@ -37,10 +35,6 @@ public class OpenMensaAPIService implements  OpenMensaAPI {
 
 	public OpenMensaAPI getApi() {
 		return mensaApiInstance;
-	}
-
-	public Gson getGson() {
-		return gson;
 	}
 
 	@Override
